@@ -18,7 +18,7 @@ public class ex03 {
         l2 = input.nextInt();
 
         area = l1 * l2;
-        perimetro = 2 * l1 * l2;
+        perimetro = 2 * (l1 + l2);
 
         System.out.println("\n ------ \n");
         System.out.println("Área: " + area);
