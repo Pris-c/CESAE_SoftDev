@@ -19,10 +19,6 @@ public class ex14 {
         System.out.print("Informe o valor 3: ");
         num3 = input.nextInt();
 
-
-
-
-
         //1, 1, 1
         if (num1 == num2 && num2 == num3) {
             maior = med = menor = num1;
