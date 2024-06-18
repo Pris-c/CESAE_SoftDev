@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Formulário do CESAE</legend>
+            
+            <!-- the parameter "for" in label is related to "id" in input-->
+            <div>
+                <label for="form-name">Nome: </label>
+                <input type="text" name="form-name" id="form-name">
+            </div>
+            <div>
+                <label for="form-email">Email: </label>
+                <input type="email" name="form-email" id="form-email">
+            </div>
+            <div>
+                <label for="form-password">Password: </label>
+                <input type="password" name="form-password" id="form-password">
+            </div>
+            
+            <div>            
+                <!-- O valor do "name" no input define o grupo ao qual aquela opção pertence -->
+                <!-- Só é possível selecionar uma opção por grupo -->
+                <input type="radio" name="form-color" id="form-color-white">
+                <label for="form-color-white">Branco</label>
+
+                <input type="radio" name="form-color" id="form-color-black">
+                <label for="form-color-black">Preto</label>
+
+                <input type="radio" name="form-color" id="form-color-yellow">
+                <label for="form-color-yellow">Amarelo</label>
+            </div>
+                        
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
