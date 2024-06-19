@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Isso é um comentário -->
+    <!-- Elementos de texto -->
+   
+    <!-- Títulos -->
+    <h1>h1: Título 1</h1>
+    <h2>h2: Título 2</h2>
+    <h3>h3: Título 3</h3>
+    <h4>h4: Título 4</h4>
+    <h5>h5: Título 5</h5>
+    <h6>h6: Título 6</h6>
+
+    <!--Linha horizontal: por padrão ocupa 100% da largura da página-->
+    
+    <hr>
+    <!-- Parágrafo -->
+    <p>p: parágrafo</p>
+    
+    <p>p: parágrafo
+        <br>
+        br: texto do parágrafo após quebra de linha
+    </p>
+
+    <p>p: parágrafo
+        <b>[b]: Lorem ipsum dolor</b>
+        <i>[i]: sit amet consectetur,</i>
+        <u>[u]: adipisicing elit. Ex natus</u>
+    </p>
+
+    <p>p: parágrafo
+        <strong>[strong]: Lorem ipsum dolor</strong>
+        <em>[em]: sit amet consectetur,</em>
+        <ins>[ins]: adipisicing elit. Ex natus</ins>
+    </p>
+
+    <p>p: parágrafo
+        <i><strong>[i][strong]: Lorem ipsum dolor</strong></i>
+    </p>
+
+    <p>p: parágrafo
+        <u><em>[u][em]: Lorem ipsum dolor</em></u>
+    </p>
+
+    <p>
+        p: Lorem ipsum dolor, <small>[small] sit amet [/small]</small> consectetur adipisicing elit. <mark>[mark] Assumenda dicta velit [mark]</mark> praesentium sapiente fugit vitae ratione <del>[del] modi non tempore [/del]</del>, ducimus, odit incidunt facere nostrum maiores! Nisi beatae odio id debitis.
+    </p>
+
+    <hr>
+    <!-- Posicionamento de texto -->
+        <sup>a</sup> a <sub>a</sub>
+        <br>
+        <sup>sup</sup> normal <sub>sub</sub>
+
+
+    <hr>
+    <!-- Abreviatura com legenda: ABBR -->
+    <abbr title="Serviço Nacional de Saúde">SNS</abbr>
+
+    <hr>
+    <!-- Listas -->
+    <!-- [ul]: Unordered List -->
+    <ul>
+        <!-- [li]: List Item -->
+        <li>Comprar fruta</li>
+        <li>Comprar água</li>
+        <li>Comprar ovo</li>
+    </ul>
+
+    <!-- [ol]: Ordered List: Elementos numerados -->
+    <ol>
+        <li>Comprar fruta</li>
+        <li>Comprar água</li>
+        <li>Comprar ovo</li>
+    </ol>
+
+
+    <!-- Atalho para criar vários elementos: ex "li" -->
+    <!--        li*50                  -->
+            
+    <!-- Atalho para criar repetições de elementos aninhados -->
+    <!--        li*2>p>b                                     --> 
+
+    <!-- Atalho para criar repetições de elementos de mesma classe -->
+    <!--        li*2.classe                                        -->
+
+    <!-- Listas aninhadas -->
+    <ul>
+        <li>CESAE</li>
+        <ul>
+            <li>Software Developer</li>
+            <ul>
+                <li>WEB</li>
+                <li>BCD</li>
+                <li>Algoritmia</li>
+            </ul>
+        </ul>
+    </ul>
+
+
+    <!-- Outras listas-->
+    <!-- [dl]: Description List-->
+    <dl>
+        <!-- [dt]: Term/Name -->
+        <dt>CESAE Digital</dt>
+        <!-- [dd]: Term description -->
+        <dd>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque eveniet perspiciatis quisquam officiis, laudantium nisi vero distinctio? Accusantium, rem quibusdam distinctio ullam consequatur, quisquam dolores ratione perspiciatis voluptate molestias ad!</dd>
+        <dt>Other Term</dt>
+        <dd>The description of the other term</dd>
+    </dl>
+
+    <hr>
+    <!-- [a] anchor: para lidar com links -->
+    <!-- Ir para link -->
+    <a href="https://www.cesaedigital.pt/">Ir para a página do Cesae</a>
+    <br>
+
+    <!-- Abrir link em nova aba: target = "_blank" -->
+    <a href="https://www.cesaedigital.pt/" target="_blank">Abrir páina do Cesae em nova aba</a>
+
+    <hr>
+    <!-- Imagem -->
+    <!-- src: endereço do recurso, pode ser local, ou um endereço na web -->
+    <!-- width: dimensionamento, pode ser definido em porcentagem em relação ao original ou em pixels -->
+    <img src="https://www.cesaedigital.pt/wp-content/uploads/2023/09/IMG-8892-scaled-e1695638668596-1024x538.jpg" alt="" width="400">
+    <img src="https://helpx.adobe.com/content/dam/help/en/firefly/using/remove-objects-from-an-image/remove-objects-generative-ai-after.jpg" alt="" width="200px">
+
+
+
+    <hr>
+    <!-- Tabela -->
+    <!-- 
+        [thead]: Cabeçalho
+        [tbody]: Dados da tabela
+        
+        [tr] - Marca uma linha
+            [th] - Table Header - Título de Coluna
+        
+       
+            [tr]: Table Row - Representa uma linha da tabela
+                [td]: Table Data - Cada célula da tabela
+        
+    -->
+    <!-- Tabela tem coluna [tr]-->
+    <!-- Coluna tem linha [th]-->
+    <table>
+        <thead>
+            Cabeçalho
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>maria@maria.com</td>
+                <td>999888777</td>
+            </tr>
+            <tr>
+                <td>João</td>
+                <td>joao@joao.com</td>
+                <td>999777666</td>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>ana@ana.com</td>
+                <td>999666555</td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Rodapé</td>
+                </tr>
+            </tfoot>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
