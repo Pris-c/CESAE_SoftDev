@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Formulário do CESAE</legend>
+            
+            <!-- the parameter "for" in label is related to "id" in input-->
+            <div>
+                <label for="form-name">Nome: </label>
+                <input type="text" name="form-name" id="form-name" placeholder="Informe o seu nome..." required>
+            </div>
+            <div>
+                <label for="form-email">Email: </label>
+                <input type="email" name="form-email" id="form-email" value="@cesae.pt">
+            </div>
+            <div>
+                <label for="form-password">Password: </label>
+                <input type="password" name="form-password" id="form-password">
+            </div>
+            <br>
+            
+            <div>            
+                <!-- 
+                    O valor do "name" no input do tipo "radio" define o grupo ao qual aquela opção pertence
+                    Deve ser igual ao atributo "for" da label principal 
+                    Só é possível selecionar uma opção por grupo
+                -->
+                                 
+                <label for="form-cor">Cor Favorita:</label>
+                <br>
+                <input type="radio" name="form-color" id="form-color-white">
+                <label for="form-cor-white">Branco</label>
+                <br>
+                <input type="radio" name="form-color" id="form-color-black">
+                <label for="form-cor-black">Preto</label>
+                <br>
+                <input type="radio" name="form-cor" id="form-color-yellow">
+                <label for="form-cor-yellow">Amarelo</label>
+                <br>
+                <input type="radio" name="form-cor" id="form-color-black">
+                <label for="fform-cor-black">Vermelho</label>
+                <br>
+                <input type="radio" name="form-cor" id="form-color-yellow">
+                <label for="form-color-yellow">Verde</label>
+            </div>
+            <br>
+
+
+            <div>
+                <label for="">Curso a frequentar</label>
+                <br>
+                <select name="" id="">
+                    <option value="" disabled selected>Selecione uma opção..</option>
+                    <option value="form-curso-softwar-developer">Software Developer</option>
+                    <option value="form-curso-front-end">Front-end Developer</option>
+                    <option value="form-curso-data-analyst">Data Analyst</option>
+                    <option value="form-curso-aws-re-start">AWS Re/Start</option>
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label for="">Dias da semana com formação</label>
+                <br>
+                <input type="checkbox" name="" id=""><label for="">Segunda-feira</label><br>
+                <input type="checkbox" name="" id=""><label for="">Terça-feira</label><br>
+            </div>
+            <br>
+
+            <div>
+                <label for="">Mensagem: </label>
+                <textarea name="" id="" cols="20" rows="10"></textarea>
+            </div>
+
+            <!-- botões? -->
+            <div>
+                <input type="reset" value="Limpar">
+                <input type="submit">
+            </div>
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>

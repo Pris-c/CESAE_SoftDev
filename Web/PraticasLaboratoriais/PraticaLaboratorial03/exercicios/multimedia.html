@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CESAE - multimedia.html</title>
+        <link rel="shortcut icon" href="exercicio-media/cesae_favicon.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header style="text-align: center;">
+            <img src="exercicio-media/logo_cesae.png" alt="Logotipo do CESAE" width="300">
+            <br>
+    
+            <nav>
+                <a href="https://www.cesaedigital.pt/" target="_blank">Ir para site oficial</a> |
+                <a href="exercicio.html">Página inicial</a> |
+                <a href="multimedia.html">Multimédia</a> |
+                <a href="form.html">Formulário</a>
+    
+                <a href="https://www.facebook.com/CesaeDigital" target="_blank">
+                    <img src="exercicio-media/facebook_logo.svg" alt="" height="50xp">
+                </a>
+                <a href="https://www.linkedin.com/company/cesae-digital/mycompany/" target="_blank">
+                    <img src="exercicio-media/linkedin_logo.webp" alt="" height="50px">
+                </a>
+                <a href="https://www.youtube.com/user/CESAECanal" target="_blank">
+                    <img src="exercicio-media/Youtube_logo.png" alt="" height="50px">
+                </a>
+            </nav>
+            <hr>
+        </header>
+
+        <main>
+            <!--
+                para medias locais: <video>, <img> e <audio>
+                para medias/conteudos externos: <iframe>
+
+                parametro 'controls': para controle de reprodução
+            -->
+            
+            <h1>Audio</h1>
+            <audio src="multimedia-media\audio.mp3" controls></audio>
+
+            <hr>
+
+            <h1>Vídeo + Poster</h1>
+            <video src="multimedia-media\video.mp4" controls poster="multimedia-media\image.jpg"></video>
+
+            <hr>
+
+            <h1>Iframe do arquivo exercicio.html</h1>
+            <iframe src="exercicio.html" frameborder="0" height="500" width="500"></iframe>
+
+            <hr>
+
+            <h1>Iframe de um vídeo do Youtube</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sj0p9O85AIg?si=9gWgH1t0A9V30SEi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </main>
+    </body>
+
+    <footer>
+        <hr>
+        <p>&copy; Priscila Campos</p>
+    </footer>
+</html>

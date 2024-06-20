@@ -1,0 +1,21 @@
+header {
+    text-align: center;
+}
+
+header>img {
+    width: 300px;
+}
+
+nav img {
+    height: 50px;
+}
+/* comentário em css */
+#texto1 {
+    background-color: red; 
+    color: white;
+}
+
+.texto2 {
+    background-color: blue; 
+    color: white;
+}

@@ -1,0 +1,31 @@
+1)
+
+Como o atributo 'for' da label principal do grupo se relaciona com os atributos 'name' das labels dos inputs?
+
+
+           <div>            
+                <!-- 
+                    O valor do "name" no input do tipo "radio" define o grupo ao qual aquela opção pertence
+                    Deve ser igual ao atributo "for" da label principal 
+                    Só é possível selecionar uma opção por grupo
+                -->
+                                 
+                <label for="form-cor">Cor Favorita:</label>
+                <br>
+                <input type="radio" name="form-color" id="form-color-white">
+                <label for="form-color-white">Branco</label>
+                <br>
+                <input type="radio" name="form-color" id="form-color-black">
+                <label for="form-color-black">Preto</label>
+                <br>
+                <input type="radio" name="form-color" id="form-color-yellow">
+                <label for="form-color-yellow">Amarelo</label>
+                <br>
+                <input type="radio" name="form-color-2" id="form-color-black">
+                <label for="form-color-black">Vermelho</label>
+                <br>
+                <input type="radio" name="form-color-2" id="form-color-yellow">
+                <label for="form-color-yellow">Verde</label>
+            </div>
+            
+2) Qando usar tags de input dos tipos reset/subimit ou a tag button.

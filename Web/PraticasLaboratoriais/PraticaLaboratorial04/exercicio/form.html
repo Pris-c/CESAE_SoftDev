@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CESAE - form.html</title>
+    <link rel="shortcut icon" href="exercicio-media/cesae_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header style="text-align: center;">
+        <img src="exercicio-media/logo_cesae.png" alt="Logotipo do CESAE" width="300">
+        <br>
+
+        <nav>
+            <a href="https://www.cesaedigital.pt/" target="_blank">Ir para site oficial</a> |
+            <a href="exercicio.html">Página inicial</a> |
+            <a href="multimedia.html">Multimédia</a> |
+            <a href="form.html">Formulário</a>
+            <br>
+            <a href="https://www.facebook.com/CesaeDigital" target="_blank">
+                <img src="exercicio-media/facebook_logo.svg" alt="" height="50xp">
+            </a>
+            <a href="https://www.linkedin.com/company/cesae-digital/mycompany/" target="_blank">
+                <img src="exercicio-media/linkedin_logo.webp" alt="" height="50px">
+            </a>
+            <a href="https://www.youtube.com/user/CESAECanal" target="_blank">
+                <img src="exercicio-media/Youtube_logo.png" alt="" height="50px">
+            </a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <form action="" method="get">
+            <fieldset>
+            <legend>Formulário de Contacto do CESAE</legend>
+
+            <div>
+                <label for="form-name">Nome:</label>
+                <input type="text" name="form-name" id="form-name" required placeholder="Insira o seu nome*">
+            </div>
+
+            <div>
+                <label for="form-email">Email:</label>
+                <input type="email" name="form-email" id="form-email">
+            </div>
+            <small>*Campo Obrigatório</small>
+            <br><br>
+
+            <div>
+                <label for="form-genero">Genero</label>
+                <br>
+                <input type="radio" name="form-genero" id="form-genero"><label for="form-genero-feminino">Feminino</label>
+                <br>
+                <input type="radio" name="form-genero" id="form-genero"><label for="form-genero-masculino">Masculino</label>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="form-data">Data atual: </label>
+                <input type="date" name="form-data" id="form-data">
+            </div>
+
+            <div>
+                <label for="form-turma">Turma: </label>
+                <select name="form-turma" id="form-turma">
+                    <option value="" selected disabled>Escolha uma opção</option>
+                    <option value="form-turma-web-developer-&-mobile">Web Developer & Mobile</option>
+                    <option value="form-turma-outra">Outra</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="form-message">Mensagem:</label>
+                <textarea name="form-message" id="form-message" cols="30" rows="3"></textarea>
+            </div>
+
+            <div>
+                <input type="reset" value="Limpar">
+                <input type="submit" value="Enviar">
+            </div>
+
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; Priscila Campos</p>
+    </footer>
+
+</body>
+</html>

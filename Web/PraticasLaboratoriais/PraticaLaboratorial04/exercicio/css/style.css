@@ -1,0 +1,41 @@
+body{
+    background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+    text-align: center;
+}
+
+header>img{
+    width: 50%;
+}
+
+nav{
+    background-color: gray;
+    padding: 5px;
+    margin: 10px;
+}
+
+nav a{
+    color: white;
+}
+
+p{
+    text-align: justify;
+}
+
+footer{
+    text-align: center;
+    background-color: gray;
+    padding: 5px;
+    margin: 10px;
+}
+
+/* */
+
+legend{
+    text-align: center;
+    color:cadetblue;
+    font-size: xx-large;
+}
