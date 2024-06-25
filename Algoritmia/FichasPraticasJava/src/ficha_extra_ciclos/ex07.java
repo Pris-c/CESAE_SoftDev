@@ -17,8 +17,8 @@ public class ex07 {
 
 
         System.out.println("\n-- CONTA NUMEROS POSITIVOS E NEGATIVOS --");
-        n = -1;
-        while (n != 0){
+
+        do {
             System.out.print("Informe um numero inteiro ou [0] para encerrar: ");
             n = input.nextInt();
 
@@ -27,7 +27,7 @@ public class ex07 {
             } else if (n > 0) {
                 contPos++;
             }
-        }
+        } while (n != 0);
 
         System.out.println("\n ------ \n");
         System.out.println("POSITIVOS: " + contPos);

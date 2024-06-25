@@ -15,7 +15,6 @@ public class ex06 {
         maior = 0;
         menor = 0;
 
-
         System.out.println("\n-- INFORMA MAIOR NUMERO --");
         System.out.print("Informe um numero inteiro ou [0] para encerrar: ");
         n = input.nextInt();
@@ -32,13 +31,10 @@ public class ex06 {
                     maior = n;
                 }
             }
+            System.out.println("\n ------ \n");
+            System.out.println("MAIOR: " + maior);
+            System.out.println("MENOR: " + menor);
         }
-
-
-        System.out.println("\n ------ \n");
-        System.out.println("MAIOR: " + maior);
-        System.out.println("MENOR: " + menor);
-
 
     }
 }
