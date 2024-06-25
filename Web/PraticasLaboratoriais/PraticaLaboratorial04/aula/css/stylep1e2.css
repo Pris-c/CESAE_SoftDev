@@ -1,0 +1,65 @@
+
+/*
+Este código irá aplicar a todo o conteúdo do <body> uma cor de fundo (background-color) cinzenta-clara, uma margem
+interna (padding) de 20 pixels.
+*/
+body {
+    background-color: lightgrey;
+    padding: 20px;
+    
+}
+/*
+ste código irá aplicar a todo o conteúdo de paragrafo o alinhamento ao centro
+*/
+p {
+    text-align: center;
+}
+
+/*
+Podemos também aplicar a vários elementos de uma só vez um determinado estilo, para isso colocamos todos os seletores
+separados por vírgula antes das propriedades. Exemplo:
+    h1, h2, h3, p{
+        text-align: center;
+    }   
+*/
+
+
+/*
+Quando queremos aplicar formatação diferentes a elementos do mesmo tipo, podemos utilizar o id.
+Para formatação de um id, usa-se # como marcador de elemento.
+- Identificadores: no HTML têm a propriedade id e no CSS são representados com o símbolo # antes do nome
+atribuído. São usados em apenas um elemento.
+*/
+
+#alinhaEsquerda {
+    text-align: left;
+}
+#alinhaDireita {
+    text-align: right;
+}
+/*
+Classes: no HTML têm a propriedade class e no CSS são representados com o símbolo . antes do nome atribuído.
+São usados em apenas um ou mais elementos.
+*/
+
+.corVermelha{
+    color: red;
+}
+
+/*
+É também possível especificar que queremos adicionar um determinado estilo a um elemento que se encontre dentro de
+um bloco específico, por exemplo, teria um <h3> dentro do bloco <header> e um <h3> dentro do bloco <footer>, posso
+definir o seguinte:
+*/
+
+header h3{
+    background-color: aquamarine;
+}
+
+footer h3{
+    background-color: brown;
+}
+
+
+
+
