@@ -3,6 +3,10 @@ package ficha_pratica_03;
 import java.util.Scanner;
 
 public class ex14 {
+    /*
+        Escreva um programa que leia uma sequência de números inteiros do utilizador e determine se a sequência
+        está em ordem crescente.
+     */
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -10,23 +14,21 @@ public class ex14 {
         boolean cres;
 
         System.out.println("\n-- INFORMA SE NUMEROS ESTÃO EM ORDEM CRESCENTE  --");
-
         System.out.print("Quantos números deseja inserir: ");
         lim = input.nextInt();
 
         System.out.print("Introduza um número: ");
         n1 = input.nextInt();
-
         i = 1;
-        cres = true;
 
+        cres = true;
         while (i < lim){
             n = n1;
 
             System.out.print("Introduza um número: ");
             n1 = input.nextInt();
 
-            if(cres && (n > n1)){
+            if(n >= n1){
                 cres = false;
             }
             i++;

@@ -3,13 +3,16 @@ package ficha_pratica_03;
 import java.util.Scanner;
 
 public class ex05 {
+    /*
+        Faça um programa que leia um número inteiro e, de seguida, leia uma mensagem.
+        Depois imprima a mensagem x vezes, sendo x o número inteiro lido
+     */
 
     public static void main(String[] args) {
 
         System.out.println("\n-- IMPRIME A MENSAGEM INFORMADA NA QUANTIDADE ESCOLHIDA --");
-
         Scanner input = new Scanner(System.in);
-        int x, numRepet;
+        int numRepet;
         String msg;
 
         System.out.print("Informe o número de repetições: ");
@@ -21,11 +24,8 @@ public class ex05 {
         msg = input.nextLine();
 
         System.out.println("\n ------ \n");
-
-        x = 0;
-        while(x < numRepet){
+        for (int i = 0; i < numRepet; i++){
             System.out.println(msg);
-            x++;
         }
 
     }
