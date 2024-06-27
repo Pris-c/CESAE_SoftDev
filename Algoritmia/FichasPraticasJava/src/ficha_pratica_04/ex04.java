@@ -18,11 +18,14 @@ public class ex04 {
 
         System.out.print("Digite um numero inteiro: ");
         n = input.nextInt();
+
         if (n <= 0){
             primo = false;
 
         } else if (n <= 2){
             primo = true;
+        } else if (n % 2 == 2){
+            primo = false;
         }
 
         else {
