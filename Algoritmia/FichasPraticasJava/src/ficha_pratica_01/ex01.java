@@ -3,6 +3,10 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex01 {
+    /*
+        Escreva um programa que faça a soma de dois números introduzidos pelo utilizador. Apresente o
+        resultado da operação.
+     */
 
     public static void main(String[] args) {
 

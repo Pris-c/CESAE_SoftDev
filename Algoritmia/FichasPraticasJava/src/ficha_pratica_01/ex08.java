@@ -3,6 +3,10 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex08 {
+    /*
+        Escreva um programa que calcule a duração (no formato hh:mm:ss) de um álbum musical com 5
+        canções. A duração de cada canção é lida em minutos e segundos.
+     */
 
     public static void main(String[] args) {
 

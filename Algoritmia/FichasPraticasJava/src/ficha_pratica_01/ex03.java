@@ -3,6 +3,10 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex03 {
+    /*
+        Escreva um programa que calcule e apresente a área e o perímetro de um retângulo. As dimensões
+        devem ser requisitadas ao utilizador.
+     */
 
     public static void main(String[] args) {
 

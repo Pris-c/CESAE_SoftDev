@@ -3,6 +3,11 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex02 {
+    /*
+        Escreva um programa que requisite dois valores. O programa deverá utilizá-los como operandos para
+        as seguintes operações aritméticas: soma, subtração, multiplicação e divisão. Apresente o resultado
+        das operações e teste os resultados obtidos com vários casos.
+     */
 
     public static void main(String[] args) {
 

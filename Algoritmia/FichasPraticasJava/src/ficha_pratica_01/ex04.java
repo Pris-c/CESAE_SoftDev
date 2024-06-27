@@ -3,6 +3,10 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex04 {
+    /*
+        Escreva um programa para calcular a área da circunferência. As dimensões devem ser requisitadas ao
+        utilizador.
+     */
 
     public static void main(String[] args) {
 

@@ -3,6 +3,11 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex05 {
+    /*
+        Escreva um programa que determine a média aritmética de um conjunto de 3 valores introduzidos pelo
+        utilizador. Tendo em consideração os valores introduzidos, deverá também apresentar a média
+        ponderada considerando as seguintes ponderações: 20%, 30%, 50%.
+     */
 
     public static void main(String[] args) {
 

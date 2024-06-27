@@ -3,6 +3,11 @@ package ficha_pratica_01;
 import java.util.Scanner;
 
 public class ex06 {
+    /*
+        Escreva um programa que leia dois valores inteiros e os armazene na variáveis valor1 e valor2. Permute
+        o valor das variáveis e apresente o resultado. De seguida, verifique se consegue efetuar esta troca sem
+        criar variáveis adicionais
+     */
 
     public static void main(String[] args) {
 
