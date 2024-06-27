@@ -3,6 +3,10 @@ package ficha_extra_condicionais;
 import java.util.Scanner;
 
 public class ex3 {
+    /*
+        Crie um programa que solicite o valor de um produto e aplique um desconto de 10% caso o valor seja superior a
+        100,00. Exiba o valor final após o desconto.
+     */
 
     public static void main(String[] args) {
 

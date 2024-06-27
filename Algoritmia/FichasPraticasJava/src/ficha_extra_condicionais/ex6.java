@@ -3,6 +3,13 @@ package ficha_extra_condicionais;
 import java.util.Scanner;
 
 public class ex6 {
+    /*
+        Crie um programa que solicite um ano e verifique se ele é bissexto (Tem 366 dias e acontece de 4 e 4 anos).
+        a.Exemplo: Insira o ano: 2012 -> É bissexto
+        b.Exemplo: Insira o ano: 2013 -> Não é bissexto
+        c.Exemplo: Insira o ano: 2023 -> Não é bissexto
+        d.Exemplo: Insira o ano: 2024 -> É bissexto
+     */
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);

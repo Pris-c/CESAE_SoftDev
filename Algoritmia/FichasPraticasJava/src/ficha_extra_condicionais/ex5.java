@@ -3,6 +3,13 @@ package ficha_extra_condicionais;
 import java.util.Scanner;
 
 public class ex5 {
+    /*
+        Crie um programa que tenha um número aleatório entre 1 e 100 (escolha e defina uma variável para este
+        número e escolha o número). Em seguida, peça ao utilizador para adivinhar o número. O programa deve
+        fornecer dicas, dizendo se o número introduzido é maior ou menor que o número misterioso, de seguida,
+        pergunte ao utilizador novamente para acertar. (Neste programa, o utilizador só tem estas duas tentativas para
+        acertar).
+     */
 
     public static void main(String[] args) {
 

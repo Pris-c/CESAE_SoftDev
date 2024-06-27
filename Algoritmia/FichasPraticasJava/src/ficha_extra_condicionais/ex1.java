@@ -1,10 +1,12 @@
 package ficha_extra_condicionais;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
 public class ex1 {
+    /*
+        Crie um programa que solicite a idade de uma pessoa e verifique se ela é maior de idade (idade igual ou
+        superior a 18 anos) ou menor de idade.
+     */
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
