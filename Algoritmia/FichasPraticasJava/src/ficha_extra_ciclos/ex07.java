@@ -32,7 +32,5 @@ public class ex07 {
         System.out.println("\n ------ \n");
         System.out.println("POSITIVOS: " + contPos);
         System.out.println("NEGATIVOS: " + contNeg);
-
-
     }
 }

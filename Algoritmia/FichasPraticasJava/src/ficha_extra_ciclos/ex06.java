@@ -18,23 +18,21 @@ public class ex06 {
         System.out.println("\n-- INFORMA MAIOR NUMERO --");
         System.out.print("Informe um numero inteiro ou [0] para encerrar: ");
         n = input.nextInt();
+        maior = menor = n;
 
-        if (n != 0){
-            maior = menor = n;
-            while (n != 0){
-                System.out.print("Informe um numero inteiro ou [0] para encerrar: ");
-                n = input.nextInt();
+        while (n != 0){
+            System.out.print("Informe um numero inteiro ou [0] para encerrar: ");
+            n = input.nextInt();
 
-                if ((n!=0) && n < menor){
-                    menor = n;
-                } else if (n > maior) {
-                    maior = n;
-                }
+            if ((n!=0) && n < menor){
+                menor = n;
+            } else if (n > maior) {
+                maior = n;
             }
-            System.out.println("\n ------ \n");
-            System.out.println("MAIOR: " + maior);
-            System.out.println("MENOR: " + menor);
         }
+        System.out.println("\n ------ \n");
+        System.out.println("MAIOR: " + maior);
+        System.out.println("MENOR: " + menor);
 
     }
 }
