@@ -3,6 +3,10 @@ package ficha_pratica_02;
 import java.util.Scanner;
 
 public class ex08 {
+    /*
+        Escreva um programa que leia três notas (0-20 valores) de um aluno, calcule a sua média final ponderada, e diga
+        se está aprovado ou não (mais de 9.5). Ponderações: Nota 1: 25%; Nota 2: 35%; Nota 3:40%
+     */
 
     public static void main(String[] args) {
 

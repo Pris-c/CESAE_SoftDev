@@ -3,6 +3,10 @@ package ficha_pratica_02;
 import java.util.Scanner;
 
 public class ex05 {
+    /*
+        Escreva um programa que leia dois valores numéricos e apresente o menor e depois o maior.
+     */
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);

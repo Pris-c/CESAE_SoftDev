@@ -3,6 +3,9 @@ package ficha_pratica_02;
 import java.util.Scanner;
 
 public class ex01 {
+    /*
+        Leia dois números inteiros e escreva na consola o maior deles.
+     */
 
     public static void main(String[] args) {
 

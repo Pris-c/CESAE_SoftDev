@@ -21,7 +21,6 @@ public class ex04 {
 
         if (n <= 0){
             primo = false;
-
         } else if (n <= 2){
             primo = true;
         } else if (n % 2 == 2){

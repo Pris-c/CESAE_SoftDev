@@ -3,6 +3,13 @@ package ficha_pratica_02;
 import java.util.Scanner;
 
 public class ex13 {
+    /*
+        Faça um programa que leia um horário no sistema de 24 horas e imprima esse horário no sistema de 12 horas.
+        Exemplo:
+        Valores Lidos: 22 32 Resultado: 10 32 PM
+        Valores Lidos: 10 44 Resultado: 10 44 AM
+     */
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);

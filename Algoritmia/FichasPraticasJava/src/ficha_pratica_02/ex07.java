@@ -3,6 +3,9 @@ package ficha_pratica_02;
 import java.util.Scanner;
 
 public class ex07 {
+    /*
+        Escreva um programa que leia um número, depois apresente se é par ou ímpar.
+     */
 
     public static void main(String[] args) {
 
