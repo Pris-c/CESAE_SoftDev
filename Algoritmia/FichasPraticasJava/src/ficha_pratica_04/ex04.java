@@ -16,24 +16,25 @@ public class ex04 {
         boolean primo;
         System.out.println("\n-- NUMERO PRIMO  --");
 
-        n = -1;
-        while (n <= 0){
-            System.out.print("Digite um numero inteiro positivo: ");
-            n = input.nextInt();
+        System.out.print("Digite um numero inteiro: ");
+        n = input.nextInt();
+        if (n <= 0){
+            primo = false;
 
-            if (n <= 0){
-                System.out.println("Valor inválido. Tente novamente!");
-            }
+        } else if (n <= 2){
+            primo = true;
         }
 
-        i = 2;
-        primo = true;
-        int stop = n/2 + 1;
-        while (primo && (i <= stop) ){
-            if (n % i == 0){
-                primo = false;
+        else {
+            i = 2;
+            primo = true;
+            int stop = n/2 + 1;
+            while (primo && (i <= stop)){
+                if (n % i == 0){
+                    primo = false;
+                }
+                i++;
             }
-            i++;
         }
 
         System.out.println("\n ------ \n");
@@ -42,5 +43,6 @@ public class ex04 {
         } else {
             System.out.println(n + " não é um número primo!");
         }
+
     }
 }
