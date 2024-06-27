@@ -3,40 +3,37 @@ package ficha_pratica_04;
 import java.util.Scanner;
 
 public class ex01 {
+    /*
+        Implemente um programa que peça ao utilizador dois valores e um carácter representando uma das quatro
+        operações aritméticas (+, -, *, /). Apresente o resultado de aplicar a operação correspondente aos valores.
+        No final, deverá perguntar ao utilizador se deseja repetir, permitindo-lhe efetuar novos cálculos.
+        Exemplo: Deseja continuar? (introduza s/n).
+     */
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        int n1, n2;
-        String op, saida;
-        String continuar;
+        double n1, n2;
+        String op, saida, continuar;
 
         continuar = "x";
         System.out.println("\n-- CALCULADORA --");
-
-        while (!continuar.equals("n")) {
-
+        do{
             System.out.print("Digite o primeiro valor: ");
-            n1 = input.nextInt();
+            n1 = input.nextDouble();
+            System.out.print("Digite o segundo valor: ");
+            n2 = input.nextDouble();
 
             // Validar operação
-            op = "x";
-            while (!op.equals("+") && !op.equals("-") && !op.equals("*") && !op.equals("/")) {
-                System.out.println("Escolha uma opção: ");
-                System.out.println("[+] - SOMA");
-                System.out.println("[-] - SUBTRAÇÃO");
-                System.out.println("[*] - MULTIPLICAÇÃO");
-                System.out.println("[/] - DIVISÃO");
-                System.out.print(">> ");
+            do {
+                System.out.print("Escolha a operação ( +, -, *, / ): ");
                 op = input.next();
 
-                if(!op.equals("+") && !op.equals("-") && !op.equals("*") && !op.equals("/")) {
+                if (!op.equals("+") && !op.equals("-") && !op.equals("*") && !op.equals("/")) {
                     System.out.println(" --- Opção inválida. Tente novamente! ---\n");
                 }
-            }
 
-            System.out.print("Digite o segundo valor: ");
-            n2 = input.nextInt();
+            } while (!op.equals("+") && !op.equals("-") && !op.equals("*") && !op.equals("/"));
 
             saida = "";
             switch (op){
@@ -57,27 +54,25 @@ public class ex01 {
                     }
                     break;
             }
-
             System.out.println("\n ------ \n");
-            // exibir resultado
-
             System.out.println(saida);
-            continuar = "x";
-            // Ler opção de encerramento
-            while(!continuar.equals("s") && !continuar.equals("n")){
+
+
+            do {
                 System.out.println("Deseja continuar?");
                 System.out.println("s - sim");
                 System.out.println("n - não");
                 System.out.print(">> ");
                 continuar = input.next();
 
-                if (!continuar.equals("s") && !continuar.equals("n")){
+                if (!continuar.equalsIgnoreCase("s") && !continuar.equalsIgnoreCase("n")) {
                     System.out.println("\nOpção inválida.");
                 }
-                System.out.println();
-            }
+            } while  (!continuar.equalsIgnoreCase("s") && !continuar.equalsIgnoreCase("n"));
 
-        }
+            System.out.println();
+
+        } while(!continuar.equalsIgnoreCase("n"));
 
         System.out.println("\n ------ \n");
 
