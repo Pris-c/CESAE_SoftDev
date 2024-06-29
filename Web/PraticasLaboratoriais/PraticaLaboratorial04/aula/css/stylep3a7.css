@@ -1,0 +1,118 @@
+.vermelho{
+    color: red;
+}
+
+.azul{
+    color: #00F;
+}
+
+.verde{
+    color: rgb(0, 255, 0);
+}
+
+.vermelho-backg-dorder{
+    color: rgba(255,0,0,0.5);
+    background-color: lightseagreen;
+    border: 2px solid black;
+}
+
+
+/*
+Para o background image
+É ainda possível associar as seguintes propriedades:
+• background-repeat: repeat-x; à repete a imagem na horizontal;
+• background-repeat: repeat-y; à repete a imagem na vertical;
+• background-repeat: no-repeat; à não repete a imagem;
+• background-position: right top; à posiciona a imagem no cimo à direita da página;
+• background-attachment: fixed; à mantém a imagem fixa quando deslizamos na página;
+• background-attachment: scroll; à a imagem desliza enquanto navegamos na página.
+*/
+
+.image-bg{
+    background-image: url("../css/image1.jpg");  
+}
+
+.dotted{
+    border-style: dotted;
+}
+.dashed{
+    border-style: dashed;
+}
+.solid{
+    border-style:solid;
+}
+.double{
+    border-style: double;
+}
+.groove{
+    border-style: groove;
+    border-color: blueviolet;
+}
+.ridge{
+    border-style: ridge;
+    border-color: goldenrod;
+}
+.outset{
+    border-style: outset;
+    border-color:rgb(170, 36, 36) ;
+
+}
+.nome-border{
+    border-style: none;
+}
+.hidden{
+    border-style: hidden;
+}
+.mixed{
+    border-style: dotted dashed solid double;
+}
+
+.espessuras{
+    border-style: solid;
+    border-width: 25px 10px 4px 35px;
+    border-radius: 10px
+}
+
+/*
+O margin permite definir o espaço que vai desde o limite do elemento até ao elemento imediatamente colado (pode ser
+a própria página).
+Enquanto que o padding aplica uma margem interna ao elemento, ou seja desde o limite até por
+exemplo ao texto que contém
+*/
+
+.marginn{
+    background-color: blue;
+    border: 2px solid red;
+    color: white;
+    margin: 20px;
+}
+.paddingg{
+    background-color: blue;
+    border: 2px solid red;
+    color: white;
+    padding: 20px;
+
+}
+
+/*
+Utilizando as
+propriedades width (largura) e height (altura) conseguimos colocar um qualquer elemento com o tamanho adequado.
+É possível definir cada atributo com os elementos:
+• auto – valor por default. O browser calcula o tamanho;
+• valor em px - permite definir o tamanho específico;
+• % - define o tamanho com uma percentagem do bloco onde se insere.
+Existem também propriedades para definição dos tamanhos máximo e mínimo de um elemento:
+• max-height;
+• max-width;
+• min-height;
+• min-width
+*/
+
+.cinzento{
+    background-color: grey;
+
+}
+.metade{
+    width: 50%;
+    background-color: lightblue;
+}
