@@ -1,0 +1,65 @@
+
+:root{
+    --corPrimaria: #e51b15;
+    --corSecundaria: #fff;
+    --corTerciaria: black;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    background-color: var(--corPrimaria);
+    color: var(--corSecundaria);
+}
+
+nav input{
+    background-color: var(--corSecundaria) !important;
+    color: var(--corTerciaria) !important;
+    border-color: var(--corSecundaria) !important;
+}
+
+footer{
+    background-color: var(--corPrimaria);
+    color: var(--corSecundaria);
+}
+
+footer a{
+    columns: var(--corSecundaria);
+    padding: 10px;
+    font-size: 20px;
+}
+
+footer a:hover{
+    opacity: 80%;
+}
+
+.btn{
+    background-color: var(--corPrimaria);
+    color: --corSecundaria;
+    border: 1px solid var(--corSecundaria);
+}
+
+.btn:hover{
+    background-color: --corSecundaria;
+    color: var(--corPrimaria);
+    border: 1px solid var(--corPrimaria)
+}
+
+.logo{
+    background-color: var(--corPrimaria);
+}
+
+.card-title{
+    min-height: 70px;
+}
+
+.card img{
+    max-height: 214px;
+}
+
+
+.badge{
+    background-color: var(--corPrimaria);
+}
