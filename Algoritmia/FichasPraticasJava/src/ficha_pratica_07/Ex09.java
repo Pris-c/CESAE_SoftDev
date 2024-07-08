@@ -39,6 +39,7 @@ public class Ex09 {
                         findByGenre(matriz);
                         break;
                     case 2:
+                        findByArtist(matriz);
                         break;
                     case 3:
                         break;
@@ -104,18 +105,42 @@ public class Ex09 {
 
         System.out.println("\n --------- " + genre.toUpperCase() + " ---------");
         for (int i = 0; i < matrizFicheiro.length; i++) {
-            for (int j = 0; j < matrizFicheiro[0].length; j++) {
-                if (genre.equalsIgnoreCase(matrizFicheiro[i][j])) {
+           // for (int j = 0; j < matrizFicheiro[0].length; j++) {
+                if (genre.equalsIgnoreCase(matrizFicheiro[i][2])) {
                     for (int k = 0; k < matrizFicheiro[0].length; k++) {
                         System.out.print(matrizFicheiro[i][k] + "\t-\t");
                     }
                     System.out.println();
                 }
-            }
+           // }
         }
         System.out.println("\n\n");
     }
 
+    // Pesquisar por músicas de um determinado género = coluna[2]
+    public static void findByArtist(String[][] matrizFicheiro){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Qual artista quer pesquisar: ");
+        System.out.print(">> ");
+        String artist = scanner.nextLine();
+
+        System.out.println("\n --------- " + artist.toUpperCase() + " ---------");
+        for (int linha = 0; linha < matrizFicheiro.length; linha++) {
+            //for (int j = 0; j < matrizFicheiro[0].length; j++) {
+                if (artist.equalsIgnoreCase(matrizFicheiro[linha][1])) {
+                    for (int k = 0; k < matrizFicheiro[0].length; k++) {
+                        System.out.print(matrizFicheiro[linha][k] + "\t-\t");
+                    }
+                    System.out.println();
+                }
+           //}
+        }
+        System.out.println("\n\n");
+    }
+
+    
+    
+    
     /*
     public static String findByArtist(String name){}
     public static int maiorDuracao(String name){}

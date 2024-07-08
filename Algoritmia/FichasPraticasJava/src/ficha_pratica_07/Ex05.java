@@ -12,8 +12,8 @@ public class Ex05 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        int soma1 = calculaSoma(new File("src/ficha_pratica_07/ficheiros/exercicio_05_31.txt"));
-        int soma2 = calculaSoma(new File("src/ficha_pratica_07/ficheiros/exercicio_05_1999.txt"));
+        int soma1 = calcularSoma(new File("src/ficha_pratica_07/ficheiros/exercicio_05_31.txt"));
+        int soma2 = somarNumerosFicheiro(new File("src/ficha_pratica_07/ficheiros/exercicio_05_1999.txt"));
 
         System.out.println("Soma ficheiro 1 = " + soma1);
         System.out.println("Soma ficheiro 2 = " + soma2);
@@ -26,7 +26,7 @@ public class Ex05 {
      * @return soma: int com o valor da soma dos valores
      * @throws FileNotFoundException
      */
-    public static int calculaSoma(File ficheiro) throws FileNotFoundException {
+    public static int calcularSoma(File ficheiro) throws FileNotFoundException {
         int soma = 0;
         Scanner scanner = new Scanner(ficheiro);
         while(scanner.hasNext()){
@@ -34,6 +34,17 @@ public class Ex05 {
             for (int i = 0; i < valoresString.length; i++){
                 soma += Integer.parseInt(valoresString[i]);
             }
+        }
+        return soma;
+    }
+
+
+    // Alternativa
+    public static int somarNumerosFicheiro(File ficheiro) throws FileNotFoundException {
+        int soma = 0;
+        Scanner scanner = new Scanner(ficheiro);
+        while(scanner.hasNextInt()){
+            soma += scanner.nextInt();
         }
         return soma;
     }

@@ -69,4 +69,21 @@ public class Ex07 {
         System.out.println("Numero de palavras: " + contPalavra);
     }
 
+    /**
+     * Informa quantas palavras há no ficheiro
+     * @param ficheiro File ficheiro a ser analisado
+     * @return int com o numero de palavras
+     * @throws FileNotFoundException
+     */
+    public static int contarPalavrasAlt(File ficheiro) throws FileNotFoundException {
+        Scanner scanner = new Scanner(ficheiro);
+        int contPalavra = 0;
+        while(scanner.hasNext()){
+            contPalavra++;
+            scanner.next();
+        }
+        return contPalavra;
+    }
+
+
 }
