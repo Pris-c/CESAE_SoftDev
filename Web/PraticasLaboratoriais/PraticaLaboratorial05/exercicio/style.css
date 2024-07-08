@@ -1,0 +1,35 @@
+header h1{
+    color: brown;
+    background-color: antiquewhite;
+    letter-spacing: 5px;
+    text-shadow: 15px 10px 2px gray;
+    
+}
+
+main p{
+    text-transform: capitalize;
+    text-indent: 50px;
+    line-height: 3;
+}
+
+footer h2{
+    text-align: right;
+    vertical-align: text-bottom;
+    text-decoration: underline;
+    word-spacing: 100px;
+}
+
+.p1{
+    font-family: 'Times New Roman', Times, serif;
+}
+.p2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.p3{
+    text-transform: uppercase;
+}
+
+a{
+    font-size: 60px;
+    color: blueviolet;
+}
