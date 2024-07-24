@@ -26,7 +26,15 @@ public class Animal extends SerVivo{
         super(nome, especie, pais, idade);
         this.fome = fome;
         this.peso = peso;
-        this.inteligencia = inteligencia;
+
+        if (inteligencia < 0){
+            this.inteligencia = 0;
+        } else if (inteligencia > 100) {
+            this.inteligencia = 100;
+        } else {
+            this.inteligencia = inteligencia;
+        }
+
         this.dieta = dieta;
         this.barulho = barulho;
     }
@@ -35,10 +43,15 @@ public class Animal extends SerVivo{
         return fome;
     }
 
+
     public Alimentacao getDieta() {
         return dieta;
     }
 
+    /**
+     * Calcula índice de capacidade do Animal
+     * @return Valor do índice de capacidade do Animal
+     */
     public double getIndiceCapacidade(){
         return this.peso + (2.5 * this.inteligencia);
     }

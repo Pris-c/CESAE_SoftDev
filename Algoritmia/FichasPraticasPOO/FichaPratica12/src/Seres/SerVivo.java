@@ -24,7 +24,7 @@ public class SerVivo {
      * Exibe todas as informações sobre o SerVivo
      */
     public void exibirInformacoes(){
-        System.out.println("** Nome: " + this.nome + " | Espécie: " + this.especie + " | Psís: " + this.pais + " | Idade: " + this.idade);
+        System.out.println("Nome: " + this.nome + " | Espécie: " + this.especie + " | País: " + this.pais + " | Idade: " + this.idade);
     }
 
     public String getNome() {

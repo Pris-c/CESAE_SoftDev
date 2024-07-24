@@ -15,6 +15,7 @@ public class MeioAmbiente {
     private String nome;
     private double agua;
     private ArrayList<SerVivo> seres;
+    private SerVivo ultimoAMorrer;
 
     /**
      * Método para construir MeioAmbiente
@@ -25,6 +26,7 @@ public class MeioAmbiente {
         this.nome = nome;
         this.agua = agua;
         this.seres = new ArrayList<>();
+        this.ultimoAMorrer = null;
     }
 
     /**
@@ -36,30 +38,50 @@ public class MeioAmbiente {
     }
 
     /**
-     * Exibe as informações de todos os seres no Array de Seres Vivos
+     * Exibe as informações de todos os seres no Array seres
      */
     public void listarSeresVivos(){
-        System.out.println("**** " + this.nome + " ****");
+        System.out.println("Lista de seres: ");
         for (SerVivo ser: this.seres) {
             ser.exibirInformacoes();
+        }
+        System.out.println();
+    }
+
+
+    /**
+     * Informa inicio de um novo dia,
+     * Exibe informações sobre os seres no ambiente, e
+     * Atribui valor "true" para fome de todos os animais
+     */
+    private void iniciarDia(){
+        System.out.println("**** Um novo dia começa em " + this.nome + " ****");
+        this.listarSeresVivos();
+
+        ArrayList<Integer> animaisIndexes = this.getAnimaisIndexes();
+        for (int i = 0; i < animaisIndexes.size(); i++){
+            Animal animal = (Animal) this.seres.get(animaisIndexes.get(i));
+            animal.setFome(true);
         }
     }
 
 
-
-
+    /**
+     * Simula uma sequencia de acontecimentos para o MeioAmbiente durante o período especificado
+     * @param dias número de dias para duração da simulação
+     */
     public void simulador(int dias){
+        int contDias = 0;
 
-
-        for (int i = 0; i < dias; i++){
-
+        do {
+            System.out.println("DIA " + (contDias+1));
+            this.iniciarDia();
             Periodo periodo = Periodo.MANHÃ;
+
             for(int k = 0; k < 3; k++){
-                System.out.println(periodo + ": ");
+                System.out.println("-- " + periodo + " --");
 
-                int acontecimento = randomNumber(1, 4);
-
-                switch (acontecimento){
+                switch (randomNumber(1, 4)){
                     case 1:
                         acontecimentoPlanta();
                         break;
@@ -70,7 +92,7 @@ public class MeioAmbiente {
                         acontecimentoInseto();
                         break;
                     case 4:
-                        catastrofeNatural();
+                        eventoNatural();
                         break;
                 }
 
@@ -82,6 +104,51 @@ public class MeioAmbiente {
                     periodo = Periodo.MANHÃ;
                 }
             }
+
+            this.alimentarAnimais();
+            if (this.seres.isEmpty()){
+                System.out.println("Não resta ser animal no ambiente.");
+                System.out.println("Último sobrevivente: ");
+                this.ultimoAMorrer.exibirInformacoes();
+            } else {
+                this.listarSeresVivos();
+            }
+            contDias++;
+
+        } while (contDias < dias && !this.seres.isEmpty());
+
+    }
+
+    /**
+     * Tenta alimentar todos os Animais com atributo fome = "true", e
+     * Elimina do ambiente os que não conseguirem ser alimentados
+     */
+    public void alimentarAnimais(){
+        System.out.println("\nO dia está acabando...");
+
+        ArrayList<Integer> animaisIndexes = this.getAnimaisIndexes();
+
+        if (!this.getAnimaisIndexes().isEmpty()){
+
+            ArrayList<Animal> animaisFamintos = new ArrayList<>();
+
+            for (int i = 0; i < animaisIndexes.size(); i++){
+                int animalIndex = animaisIndexes.get(i);
+                Animal animal = (Animal) this.seres.get(animalIndex);
+
+                if (animal.estaComFome()){
+                    boolean comeu = this.animalCome(animalIndex);
+                    if (!comeu){
+                        animaisFamintos.add(animal);
+                    }
+                }
+                animaisIndexes = this.getAnimaisIndexes();
+            }
+
+            for(Animal a: animaisFamintos){
+                System.out.println("Animal " + a.getNome() + "morreu de fome.");
+            }
+            this.seres.removeAll(animaisFamintos);
         }
     }
 
@@ -92,27 +159,26 @@ public class MeioAmbiente {
     private void acontecimentoPlanta(){
         int indexPlanta = escolherPlanta();
         if (indexPlanta != -1){
-
-            int acontecimento = randomNumber(1, 2);
-
-            switch (acontecimento){
+            switch (randomNumber(1, 2)){
                 case 1:
                     this.plantaAbanaComVento(indexPlanta);
-                    break;
+                    return;
                 case 2:
                     Planta planta = (Planta) this.seres.get(indexPlanta);
-
                     if (planta.getFamilia().equals(Familia.COME_INSETOS)){
                         this.plantaComeInseto(indexPlanta);
                     } else {
                         this.plantaBebe(indexPlanta);
                     }
-                    break;
+                    return;
             }
         }
+        System.out.println("Nenhuma planta para agir.");
     }
 
-
+    /**
+     * Escolhe um acontecimento aleatório para acontecer com um Animal
+     */
     private void acontecimentoAnimal(){
         int indexAnimal = escolherAnimal();
         if (indexAnimal != -1){
@@ -121,38 +187,48 @@ public class MeioAmbiente {
             switch (acontecimento){
                 case 1:
                     this.animalCome(indexAnimal);
-                    break;
+                    return;
                 case 2:
                     this.animalBebe(indexAnimal);
-                    break;
+                    return;
                 case 3:
                     this.animalMovimenta(indexAnimal);
-                    break;
+                    return;
                 case 4:
                     this.animalFazBarulho(indexAnimal);
-                    break;
+                    return;
             }
         }
-
+        System.out.println("Não há animal para agir.");
     }
 
-
+    /**
+     * Executa ação com um Inseto
+     */
     public void acontecimentoInseto(){
         int indexInseto = escolherInseto();
         if (indexInseto != -1){
             this.insetoChateia(indexInseto);
+            return;
         }
+        System.out.println("Não há inseto para agir.");
     }
 
-    public void catastrofeNatural(){
+    /**
+     * Escolhe um evento natural para acontecer no ambiente
+     */
+    public void eventoNatural(){
         switch (randomNumber(1, 3)){
             case 1:
                 this.seca();
+                System.out.println("Uma seca atingiu o ambiente");
                 break;
             case 2:
                 this.chuva();
+                System.out.println("Uma chuva abasteceu o ambiente");
                 break;
             case 3:
+                System.out.println("PERIGO! Está havendo uma erupção vulcânica!");
                 this.erupcaoVulcanica();
                 break;
         }
@@ -166,9 +242,11 @@ public class MeioAmbiente {
     private int escolherPlanta(){
         ArrayList<Integer> plantasIndexes = getPlantasIndexes();
 
-
-
         if (!plantasIndexes.isEmpty()){
+            if (plantasIndexes.size() == 1){
+                return plantasIndexes.get(0);
+            }
+
             int randomIndex = randomNumber(0, plantasIndexes.size()-1);
             return plantasIndexes.get(randomIndex);
         }
@@ -177,23 +255,26 @@ public class MeioAmbiente {
 
     /**
      * Escolhe um Animal aleatório no Array de Seres Vivos
-     * @return index correspondente a um Animal no Array de Seres Vivos ou -1, se nenhum Animal for encontrada
+     * @return index correspondente a um Animal no Array de Seres Vivos ou -1, se nenhum Animal for encontrado
      */
     private int escolherAnimal(){
         ArrayList<Integer> animaisIndexes = getAnimaisIndexes();
 
         if (!animaisIndexes.isEmpty()){
+            if (animaisIndexes.size() == 1){
+                return animaisIndexes.get(0);
+            }
             int randomIndex = randomNumber(0, animaisIndexes.size()-1);
+
             return animaisIndexes.get(randomIndex);
         }
-
         return -1;
     }
 
 
     /**
      * Escolhe um Inseto aleatório no Array de Seres Vivos
-     * @return index correspondente a um Inseto no Array de Seres  ou -1, se nenhum Inseto for encontrada
+     * @return index correspondente a um Inseto no Array de Seres  ou -1, se nenhum Inseto for encontrado
      */
     private int escolherInseto(){
         ArrayList<Integer> insetosIndexes = new ArrayList<>();
@@ -205,6 +286,9 @@ public class MeioAmbiente {
         }
 
         if (!insetosIndexes.isEmpty()){
+            if (insetosIndexes.size() == 1){
+                return insetosIndexes.get(0);
+            }
             int randomIndex = randomNumber(0, insetosIndexes.size()-1);
             return insetosIndexes.get(randomIndex);
         }
@@ -224,27 +308,33 @@ public class MeioAmbiente {
 
         if (this.agua >= consumoPlanta) {
             this.agua -= consumoPlanta;
+            System.out.println("Planta " + planta.getNome() + " bebeu água.");
         } else {
-            this.seres.remove(indexPlanta);
+            this.ultimoAMorrer = this.seres.remove(indexPlanta);
+            System.out.println("Planta " + ultimoAMorrer.getNome() + " morreu de sede.");
         }
     }
 
     /**
      * Remove um Inseto do Array de Seres Vivos, se houver.
      * Do contrário, remove a Planta.
-     * @param indexPlanta index da Planta que deve se alimentar do inseto ou ser removida
+     * @param indexPlanta index da Planta que deve se alimentar do Inseto ou ser removida
      */
     private void plantaComeInseto(int indexPlanta){
         Planta planta = (Planta) this.seres.get(indexPlanta);
-
         if (planta.getFamilia().equals(Familia.COME_INSETOS)){
             int indexInseto = this.escolherInseto();
             if (indexInseto != -1){
-                this.seres.remove(indexInseto);
+                this.ultimoAMorrer = this.seres.remove(indexInseto);
+                System.out.println("Planta " + planta.getNome() + " comeu o inseto " + this.ultimoAMorrer.getNome() + ".");
+                return;
             } else {
-                this.seres.remove(indexPlanta);
+                ultimoAMorrer = this.seres.remove(indexPlanta);
+                System.out.println("Planta " + ultimoAMorrer.getNome() + " morreu de fome.");
+                return;
             }
         }
+        System.out.println("⚠\uFE0F" + planta.getNome() + "não comeu, pois não é carnívora.");
     }
 
     /**
@@ -259,34 +349,57 @@ public class MeioAmbiente {
     }
 
 
+    /**
+     * Escolhe um Animal para emitir o seu barulho característico
+     * @param indexAnimal index do Animal no Array de seres
+     */
     private void animalFazBarulho(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
-        System.out.print("** " + animal.getNome() + ":\n - ");
+        System.out.print(animal.getNome() + ": ");
         animal.fazerBarulho();
     }
 
+    /**
+     * Escolhe um Animal para se movimentar
+     * @param indexAnimal index do Animal no Array de Seres
+     */
     private void animalMovimenta(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
-        System.out.print("** O animal " + animal.getNome() + " movimentou-se");
+        System.out.println("O animal " + animal.getNome() + " movimentou-se");
     }
 
+
+    /**
+     * Gera consumo de água pelo Animal.
+     * Se houver água suficiente no ambiente, remove o equivalente ao consumo do Animal,
+     * Se não houver água suficiente no ambiente, remove o Animal do Array de Seres Vivos
+     * @param indexAnimal index do Animal que deve beber água no array de seres
+     */
     private void animalBebe(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
         double consumoAnimal = animal.getConsumoAgua();
 
         if (this.agua >= consumoAnimal){
             this.agua -= consumoAnimal;
+            System.out.println("Animal " + animal.getNome() + " bebeu água.");
         } else {
-            this.seres.remove(indexAnimal);
+            this.ultimoAMorrer = this.seres.remove(indexAnimal);
+            System.out.println("Animal " + ultimoAMorrer.getNome() + " morreu de sede.");
         }
     }
 
-    private void animalCome(int indexAnimal){
+    /**
+     * Tenta alimentar o Animal de acordo com sua dieta
+     * @param indexAnimal  index do Animal que deve ser alimentado no array de seres
+     * @return true, se a tentativa teve um desfecho, false, se a tentativa não foi completada
+     */
+    private boolean animalCome(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
         int opcaoComida = 1;
 
         if (!animal.estaComFome()){
             System.out.println(animal.getNome() + " está de barriga cheia.");
+
         } else {
             switch (animal.getDieta()){
                 case CARNIVORA:
@@ -297,36 +410,55 @@ public class MeioAmbiente {
 
             switch (opcaoComida){
                 case 1:
-                    // Se for noite e retorno false, animal morre.
-                    animalComerPlanta(indexAnimal);
+                    return animalComerPlanta(indexAnimal);
                 case 2:
-                    // Se for noite e retorno false, animal morre.
-                    animalComerAnimal(indexAnimal);
+                    return animalComerAnimal(indexAnimal);
                 case 3:
                     animalComerInseto(indexAnimal);
+                    return true;
             }
         }
+        return true;
     }
 
+    /**
+     * Tenta alimentar um Animal com outro Animal
+     * @param indexAnimal index do Animal que deve ser alimentado no array de seres
+     * @return true, se o animal conseguir se alimentar, false, caso contrário
+     */
     private boolean animalComerAnimal(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
+
         if (getAnimaisIndexes().size() > 1){
             int indexAlimento;
+
             do{
                 indexAlimento = escolherAnimal();
+
             } while (indexAnimal == indexAlimento);
 
             Animal alimento = (Animal) this.seres.get(indexAlimento);
 
             if (animal.getIndiceCapacidade() > alimento.getIndiceCapacidade()){
-                this.seres.remove(indexAlimento);
+                this.ultimoAMorrer = this.seres.remove(indexAlimento);
                 animal.setFome(false);
+                System.out.println("Animal " + animal.getNome() + " comeu o animal " + this.ultimoAMorrer.getNome());
                 return true;
             }
+
+            System.out.println("Animal " + animal.getNome() + " tentou comer o animal " + alimento.getNome() + ", mas não conseguiu.");
+            return false;
         }
+
+        System.out.println("Animal " + animal.getNome() + " tentou comer outro animal, mas ele é o único no ambiente.");
         return false;
     }
 
+    /**
+     * Tenta alimentar Animal com uma Planta
+     * @param indexAnimal index do Animal que deve ser alimentado no array de seres
+     * @return true, se o animal conseguir se alimentar, false, caso contrário
+     */
     private boolean animalComerPlanta(int indexAnimal){
         Animal animal = (Animal) this.seres.get(indexAnimal);
 
@@ -368,65 +500,103 @@ public class MeioAmbiente {
             }
 
             if (animalCome){
-                this.seres.remove(indexPlanta);
+                this.ultimoAMorrer = this.seres.remove(indexPlanta);
                 animal.setFome(false);
+                System.out.println("Animal " + animal.getNome() + " comeu a planta " + this.ultimoAMorrer.getNome());
                 return true;
             }
+            System.out.println("Animal " + animal.getNome() + " tentou comer a planta " + planta.getNome() + ", mas não conseguiu.");
+            return false;
+
         }
+        System.out.println("Animal " + animal.getNome() + " tentou comer uma planta, mas não há nenhuma no ambiente.");
         return false;
     }
 
+    /**
+     * Tenta alimentar Animal com um Inseto
+     * Se a tentativa for bem sucedida, remove um Inseto do Array de seres, do contrário, remove o Animal
+     * @param indexAnimal index do Animal que deve ser alimentado no array de seres
+     */
     public void animalComerInseto(int indexAnimal){
         int indexInseto = escolherInseto();
+        Animal animal = (Animal) this.seres.get(indexAnimal);
 
         if (indexInseto != -1){
             Inseto inseto = (Inseto) this.seres.get(indexInseto);
 
             if (inseto.isVenenoso()){
-                this.seres.remove(indexAnimal);
+                this.ultimoAMorrer = this.seres.remove(indexAnimal);
+                System.out.println("Animal " + ultimoAMorrer.getNome() + " morreu ao tentar comer o inseto " + inseto.getNome() + ".");
             } else {
-                this.seres.remove(indexInseto);
-                Animal animal = (Animal) this.seres.get(indexAnimal);
+                this.ultimoAMorrer = this.seres.remove(indexInseto);
+                System.out.println("Animal " + animal.getNome() + " comeu o inseto " + ultimoAMorrer.getNome() + ".");
                 animal.setFome(false);
             }
         }
+        System.out.println("Animal " + animal.getNome() + " tentou comer um inseto, mas não há nenhum no ambiente.");
     }
 
 
+    /**
+     * Exibe zumbido de um Inseto
+     * @param indexInseto index no Array de seres do Inseto que deve zumbir
+     */
     public void insetoChateia(int indexInseto){
         Inseto inseto = (Inseto) this.seres.get(indexInseto);
         inseto.zumbir(randomNumber(1, 3));
     }
 
 
+    /**
+     * Remove metade da quantidade de água do ambiente
+     */
     public void seca(){
         this.agua *= 0.5;
     }
 
+    /**
+     * Dobra a quantidade de água do ambiente
+     */
     public void chuva(){
         this.agua *= 2;
     }
 
+    /**
+     * Elimina metade das Plantas e metade dos Animais do ambiente
+     */
     public void erupcaoVulcanica(){
         this.eliminarMetadeDosSeres(this.getPlantasIndexes());
         this.eliminarMetadeDosSeres(this.getAnimaisIndexes());
     }
 
+    /**
+     * Elimina metade do seres recebidos do Array de seres
+     * @param seresIndexes indexes dos SeresVivos a serem considerados para remoção
+     */
     public void eliminarMetadeDosSeres(ArrayList<Integer> seresIndexes){
         if (!seresIndexes.isEmpty()){
             if (seresIndexes.size() == 1){
-                this.seres.remove(seresIndexes.get(0));
+                int index = seresIndexes.getFirst();
+                this.ultimoAMorrer = this.seres.remove(index);
+                System.out.println("Ser " + this.ultimoAMorrer.getNome() + " morreu.");
                 return;
             }
 
             int qtdEliminar = seresIndexes.size() / 2 ;
             for (int i = 0; i < qtdEliminar; i++){
-                this.seres.remove(seresIndexes.get(randomNumber(0, seresIndexes.size())-1));
+                int index = seresIndexes.get(i);
+                this.ultimoAMorrer = this.seres.remove(index);
+                System.out.println("Ser " + this.ultimoAMorrer.getNome() + " morreu.");
             }
         }
     }
 
 
+    /**
+     * Extrai indexes de todas as Plantas no Array de seres
+     * @return Array com os indexes das Plantas
+     */
     private ArrayList<Integer> getPlantasIndexes(){
         ArrayList<Integer> plantasIndexes = new ArrayList<>();
 
@@ -440,7 +610,10 @@ public class MeioAmbiente {
 
     }
 
-
+    /**
+     * Extrai indexes de todos os Animais no Array de seres
+     * @return Array com os indexes dos Animais
+     */
     private ArrayList<Integer> getAnimaisIndexes(){
 
         ArrayList<Integer> animaisIndexes = new ArrayList<>();
@@ -462,9 +635,7 @@ public class MeioAmbiente {
      */
     private int randomNumber(int min, int max){
         Random rd = new Random();
-        return rd.nextInt(min, max);
+        return rd.nextInt(min, max+1);
     }
-
-
 
 }

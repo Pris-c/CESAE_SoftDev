@@ -39,7 +39,7 @@ public class Planta extends SerVivo{
 
     public double getConsumoAgua(){
         switch (this.familia){
-            case AVORES: return 1;
+            case ARVORES: return 1;
             case FLORES: return 0.1;
             case ERVAS: return 0.25;
             default: return 0;
