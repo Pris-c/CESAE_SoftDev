@@ -47,7 +47,7 @@ public class Main {
         ambiente.addSerVivo(new Inseto("Butterfly", "Borboleta", "Brasil", 1, false));
         ambiente.addSerVivo(new Inseto("Bee", "Abelha", "EUA", 1, true));
         ambiente.addSerVivo(new Inseto("Ant", "Formiga", "Austrália", 2, false));
-        ambiente.addSerVivo(new Inseto("Beetle", "Besouro", "África do Sul", 1, false));
+/*        ambiente.addSerVivo(new Inseto("Beetle", "Besouro", "África do Sul", 1, false));
         ambiente.addSerVivo(new Inseto("Mosquito", "Mosquito", "Índia", 1, true));
         ambiente.addSerVivo(new Inseto("Dragonfly", "Libélula", "Canadá", 2, false));
         ambiente.addSerVivo(new Inseto("Mantis", "Louva-a-deus", "China", 1, false));
@@ -63,9 +63,9 @@ public class Main {
         ambiente.addSerVivo(new Inseto("Fly", "Mosca", "Rússia", 1, false));
         ambiente.addSerVivo(new Inseto("Hornet", "Zangão", "Espanha", 1, true));
         ambiente.addSerVivo(new Inseto("Moth", "Mariposa", "Tailândia", 1, false));
-        ambiente.addSerVivo(new Inseto("Tick", "Carrapato", "Brasil", 1, true));
+        ambiente.addSerVivo(new Inseto("Tick", "Carrapato", "Brasil", 1, true));*/
 
-        ambiente.simulador(7500);
+        ambiente.simulador(365);
 
     }
 }

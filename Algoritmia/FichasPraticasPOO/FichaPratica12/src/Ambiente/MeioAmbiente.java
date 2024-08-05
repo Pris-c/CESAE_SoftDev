@@ -133,6 +133,7 @@ public class MeioAmbiente {
             ArrayList<Animal> animaisFamintos = new ArrayList<>();
 
             for (int i = 0; i < animaisIndexes.size(); i++){
+
                 int animalIndex = animaisIndexes.get(i);
                 Animal animal = (Animal) this.seres.get(animalIndex);
 
@@ -142,11 +143,13 @@ public class MeioAmbiente {
                         animaisFamintos.add(animal);
                     }
                 }
+
                 animaisIndexes = this.getAnimaisIndexes();
             }
 
             for(Animal a: animaisFamintos){
                 System.out.println("Animal " + a.getNome() + "morreu de fome.");
+                this.ultimoAMorrer = a;
             }
             this.seres.removeAll(animaisFamintos);
         }
@@ -515,10 +518,9 @@ public class MeioAmbiente {
 
     /**
      * Tenta alimentar Animal com um Inseto
-     * Se a tentativa for bem sucedida, remove um Inseto do Array de seres, do contrário, remove o Animal
-     * @param indexAnimal index do Animal que deve ser alimentado no array de seres
+
      */
-    public void animalComerInseto(int indexAnimal){
+    public boolean animalComerInseto(int indexAnimal){
         int indexInseto = escolherInseto();
         Animal animal = (Animal) this.seres.get(indexAnimal);
 
@@ -528,13 +530,16 @@ public class MeioAmbiente {
             if (inseto.isVenenoso()){
                 this.ultimoAMorrer = this.seres.remove(indexAnimal);
                 System.out.println("Animal " + ultimoAMorrer.getNome() + " morreu ao tentar comer o inseto " + inseto.getNome() + ".");
+                return false;
             } else {
                 this.ultimoAMorrer = this.seres.remove(indexInseto);
                 System.out.println("Animal " + animal.getNome() + " comeu o inseto " + ultimoAMorrer.getNome() + ".");
                 animal.setFome(false);
+                return true;
             }
         }
         System.out.println("Animal " + animal.getNome() + " tentou comer um inseto, mas não há nenhum no ambiente.");
+        return true;
     }
 
 
